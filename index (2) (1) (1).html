@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JOMPO Digital Solutions</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS User ID
+    })();
+
+    function sendEmail(e) {
+      e.preventDefault();
+      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', '#emailForm')
+        .then(function() {
+          window.location.href = 'thankyou.html';
+        }, function(error) {
+          alert('Failed to send email. Please try again.');
+        });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>JOMPO Digital Solutions</h1>
+    <p>Empowering Agriculture and Green Innovation</p>
+  </header>
+  <main>
+    <section>
+      <h2>Download Our Free Book</h2>
+      <p>Enter your email to get a free copy of <strong>The Green Innovative Future</strong>.</p>
+      <form id="emailForm" onsubmit="sendEmail(event)">
+        <input type="email" name="user_email" placeholder="Enter your email" required />
+        <button type="submit">Download Book</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 JOMPO Digital Solutions | Contact us at <a href="mailto:info@jompo.org">info@jompo.org</a></p>
+  </footer>
+</body>
+</html>
